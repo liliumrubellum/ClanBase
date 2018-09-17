@@ -22,6 +22,7 @@
     "@angular/router": "^6.1.0",
     "bluebird": "^3.5.2",
     "core-js": "^2.5.4",
+    "request-ip": "^2.1.1",
     "rxjs": "^6.0.0",
     "sqlite3": "^4.0.2",
     "zone.js": "~0.8.26"

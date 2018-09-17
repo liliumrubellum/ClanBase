@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var requestIp = require('request-ip');
 var path = require('path');
 var fs = require('fs');
 require('sqlite3').Database.prototype = require('bluebird').promisifyAll(require('sqlite3').Database.prototype)
@@ -36,6 +37,9 @@ app.use(function (req, res, next) {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// require request-ip and register it as middleware
+app.use(requestIp.mw())
+
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
@@ -71,7 +75,7 @@ app.route('/api/vote*')
         await db.runAsync('\
           INSERT INTO vote \
           VALUES (?, ?, ?, ?, ?, ?, ?)',
-          id, JSON.stringify(req.body), -1, '', 0, Date.now(), req.ip);
+          id, JSON.stringify(req.body), -1, '', 0, Date.now(), req.clientIp);
         console.log('inserted');
 
         await db.execAsync('COMMIT');
