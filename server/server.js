@@ -152,8 +152,9 @@ app.route('/api/vote*')
       let ret = await db.getAsync('\
         SELECT 1 \
         FROM vote \
-        WHERE id = ?',
-        req.body.voteId);
+        WHERE id = ? \
+        AND ( discord_id < 0 OR discord_id = ? )',
+        req.body.voteId, req.body.discordId);
 
       if (!ret) {
         throw req.body.voteId + ' は無効です。';
@@ -178,7 +179,8 @@ app.route('/api/vote*')
           SET active = 1, \
               discord_id = ?, \
               name = ? \
-          WHERE id = ?',
+          WHERE id = ? \
+          AND ( discord_id < 0 OR discord_id = ?1 )',
           req.body.discordId, req.body.name, req.body.voteId);
         console.log('activated');
 
