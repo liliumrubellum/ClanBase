@@ -1,0 +1,395 @@
+{
+  "oil": 200000,
+  "dueDate": "2018/9/24 7:00",
+  "building":
+  [
+    {
+      "id": 1,
+      "name": "将校クラブ",
+      "effect": "人数",
+      "unit": "",
+      "hidden": true,
+      "minLevel": 0,
+      "maxLevel": 2,
+      "levels":
+      [
+        {
+          "level": 1,
+          "value": 5,
+          "oil": 5000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 2,
+          "value": 5,
+          "oil": 15000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 3,
+          "value": 5,
+          "oil": 35000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 4,
+          "value": 5,
+          "oil": 65000,
+          "minTier": 1,
+          "maxTier": 10
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "乾ドック",
+      "effect": "修理費",
+      "unit": "%",
+      "hidden": false,
+      "minLevel": 3,
+      "maxLevel": 6,
+      "levels":
+      [
+        {
+          "level": 1,
+          "value": -5,
+          "oil": 200,
+          "minTier": 1,
+          "maxTier": 6
+        },
+        {
+          "level": 2,
+          "value": -5,
+          "oil": 600,
+          "minTier": 7,
+          "maxTier": 8
+        },
+        {
+          "level": 3,
+          "value": -5,
+          "oil": 2000,
+          "minTier": 9,
+          "maxTier": 10
+        },
+        {
+          "level": 4,
+          "value": -5,
+          "oil": 12000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 5,
+          "value": -2,
+          "oil": 20000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 6,
+          "value": -3,
+          "oil": 50000,
+          "minTier": 1,
+          "maxTier": 10
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "造船所",
+      "effect": "建造費",
+      "unit": "%",
+      "hidden": false,
+      "minLevel": 3,
+      "maxLevel": 6,
+      "levels":
+      [
+        {
+          "level": 1,
+          "value": -10,
+          "oil": 100,
+          "minTier": 1,
+          "maxTier": 6
+        },
+        {
+          "level": 2,
+          "value": -10,
+          "oil": 400,
+          "minTier": 7,
+          "maxTier": 8
+        },
+        {
+          "level": 3,
+          "value": -10,
+          "oil": 3000,
+          "minTier": 9,
+          "maxTier": 10
+        },
+        {
+          "level": 4,
+          "value": -2,
+          "oil": 6000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 5,
+          "value": -2,
+          "oil": 10000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 6,
+          "value": -1,
+          "oil": 20000,
+          "minTier": 1,
+          "maxTier": 10
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "研究所",
+      "effect": "経験値",
+      "unit": "%",
+      "hidden": false,
+      "minLevel": 3,
+      "maxLevel": 6,
+      "levels":
+      [
+        {
+          "level": 1,
+          "value": 2,
+          "oil": 0,
+          "minTier": 1,
+          "maxTier": 6
+        },
+        {
+          "level": 2,
+          "value": 2,
+          "oil": 0,
+          "minTier": 7,
+          "maxTier": 8
+        },
+        {
+          "level": 3,
+          "value": 2,
+          "oil": 0,
+          "minTier": 9,
+          "maxTier": 10
+        },
+        {
+          "level": 4,
+          "value": 1,
+          "oil": 7500,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 5,
+          "value": 1,
+          "oil": 15000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 6,
+          "value": 1,
+          "oil": 30000,
+          "minTier": 1,
+          "maxTier": 10
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "設計局",
+      "effect": "フリー経験値",
+      "unit": "%",
+      "hidden": false,
+      "minLevel": 3,
+      "maxLevel": 6,
+      "levels":
+      [
+        {
+          "level": 1,
+          "value": 10,
+          "oil": 0,
+          "minTier": 1,
+          "maxTier": 6
+        },
+        {
+          "level": 2,
+          "value": 10,
+          "oil": 0,
+          "minTier": 7,
+          "maxTier": 8
+        },
+        {
+          "level": 3,
+          "value": 10,
+          "oil": 0,
+          "minTier": 9,
+          "maxTier": 10
+        },
+        {
+          "level": 4,
+          "value": 5,
+          "oil": 7500,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 5,
+          "value": 5,
+          "oil": 15000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 6,
+          "value": 5,
+          "oil": 30000,
+          "minTier": 1,
+          "maxTier": 10
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "アカデミー",
+      "effect": "艦長経験値",
+      "unit": "%",
+      "hidden": false,
+      "minLevel": 3,
+      "maxLevel": 5,
+      "levels":
+      [
+        {
+          "level": 1,
+          "value": 2,
+          "oil": 100,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 2,
+          "value": 2,
+          "oil": 400,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 3,
+          "value": 2,
+          "oil": 2500,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 4,
+          "value": 2,
+          "oil": 10000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 5,
+          "value": 2,
+          "oil": 20000,
+          "minTier": 1,
+          "maxTier": 10
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "石炭港",
+      "effect": "石炭",
+      "unit": "%",
+      "hidden": false,
+      "minLevel": 1,
+      "maxLevel": 3,
+      "levels":
+      [
+        {
+          "level": 1,
+          "value": 5,
+          "oil": 4000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 2,
+          "value": 2,
+          "oil": 20000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 3,
+          "value": 3,
+          "oil": 100000,
+          "minTier": 1,
+          "maxTier": 10
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "鋼鉄港",
+      "effect": "鋼鉄",
+      "unit": "%",
+      "hidden": false,
+      "minLevel": 0,
+      "maxLevel": 3,
+      "levels":
+      [
+        {
+          "level": 1,
+          "value": 5,
+          "oil": 60000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 2,
+          "value": 2,
+          "oil": 90000,
+          "minTier": 1,
+          "maxTier": 10
+        },
+        {
+          "level": 3,
+          "value": 3,
+          "oil": 120000,
+          "minTier": 1,
+          "maxTier": 10
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "戦勝記念碑",
+      "effect": "なし",
+      "unit": "",
+      "hidden": true,
+      "minLevel": 1,
+      "maxLevel": 1,
+      "levels":
+      [
+        {
+          "level": 1,
+          "value": 0,
+          "oil": 0,
+          "minTier": 1,
+          "maxTier": 10
+        }
+      ]
+    }
+  ]
+}
