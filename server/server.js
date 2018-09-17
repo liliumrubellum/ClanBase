@@ -16,12 +16,26 @@ if (!fs.existsSync(dbDir)) {
 }
 const db = new sqlite3.Database(path.resolve(dbDir, 'clanbase.db'));
 
+// テーブル作成
+db.run('\
+  CREATE TABLE IF NOT EXISTS vote ( \
+    id int, \
+    data text, \
+    discord_id int, \
+    name text, \
+    active int, \
+    create_date int, \
+    ip text, \
+    PRIMARY KEY(id) \
+  )');
+console.log('table is created');
 
 // we've started you off with Express,
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
@@ -53,20 +67,6 @@ app.post('/api/vote', function (req, res) {
   };
 
   let proc = async function () {
-
-    // テーブル作成
-    await db.runAsync('\
-     CREATE TABLE IF NOT EXISTS vote ( \
-       id int, \
-       data text, \
-       discord_id int, \
-       name text, \
-       active int, \
-       create_date int, \
-       ip text, \
-       PRIMARY KEY(id) \
-     )');
-    console.log('table is created');
 
     await db.execAsync('BEGIN');
     console.log('transaction begun');
@@ -110,14 +110,20 @@ app.post('/api/vote', function (req, res) {
 app.get('/api/vote', function(req, res) {
 
   console.log('***** GET *****');
+  console.log(req.query);
 
+  let all = req.param('all');
   let proc = async function () {
 
     // 取得
-    let ret = await db.allAsync('\
-      SELECT name, data \
-      FROM vote \
-      WHERE active = 1');
+    let ret = all ?
+      await db.allAsync('\
+        SELECT * \
+        FROM vote') :
+      await db.allAsync('\
+        SELECT name, data \
+        FROM vote \
+        WHERE active = 1');
     console.log('selected');
 
     ret.forEach(x => {
@@ -200,7 +206,33 @@ app.put('/api/vote', function(req, res) {
   proc()
     .then(_ => {
       console.log('completed');
-      res.sendStatus(200);
+      res.status(200).send({});
+    })
+    .catch(err => {
+      console.log('error occurred');
+      console.error(err);
+      res.status(500).send(err);
+    });
+});
+
+app.delete('/api/vote/*', function(req, res) {
+
+  console.log('***** DELETE *****');
+
+  let id = req.url.replace('/api/vote/', '');
+  let proc = async function () {
+
+    // 削除
+    await db.runAsync('\
+      DELETE FROM vote \
+      WHERE id = ?', id);
+    console.log('deleted');
+  }
+
+  proc()
+    .then(data => {
+      console.log('completed');
+      res.status(200).send({});
     })
     .catch(err => {
       console.log('error occurred');

@@ -1,0 +1,29 @@
+/* div {
+  border: 1px solid;
+} */
+
+table, td {
+  border: 1px solid;
+}
+
+.main {
+  text-align: center;
+}
+
+table {
+  display: inline-block;
+  border-spacing: 0px;
+}
+
+tr.active {
+  background-color: rgb(61, 117, 98);
+}
+
+td {
+  padding: 5px 10px;
+}
+
+span {
+  margin: 1px;
+}
+

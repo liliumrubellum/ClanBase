@@ -102,7 +102,7 @@ export class MainComponent implements OnInit {
   }
 
   postVote() {
-    this.apiService.vote(this.ownVoteData).subscribe(id => {
+    this.apiService.postVote(this.ownVoteData).subscribe(id => {
       this.voteId = id;
     });
   }

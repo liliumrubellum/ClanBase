@@ -16,11 +16,15 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  vote(data: any): Observable<any> {
+  postVote(data: any): Observable<any> {
     return this.http.post<any>(environment.apiUrl, data, httpOptions);
   }
 
-  getVote(): Observable<any> {
-    return this.http.get<any>(environment.apiUrl);
+  getVote(all: boolean = false): Observable<any> {
+    return this.http.get<any>(environment.apiUrl + (all ? '?all=1' : ''));
+  }
+
+  deleteVote(id: number): Observable<any> {
+    return this.http.delete<any>(environment.apiUrl + '/' + id);
   }
 }

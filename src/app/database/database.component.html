@@ -1,0 +1,30 @@
+<div class="main">
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Data</td>
+        <td>DiscordID</td>
+        <td>Name</td>
+        <td>Active</td>
+        <td>CreateDate</td>
+        <td>IP</td>
+        <td>DEL</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let v of allVoteData" [ngClass]="{ active: v.active == 1 }">
+        <td>{{v.id}}</td>
+        <td>
+          <span *ngFor="let d of v.data">{{d.level}}</span>
+        </td>
+        <td>{{v.discord_id}}</td>
+        <td>{{v.name}}</td>
+        <td>{{v.active}}</td>
+        <td>{{v.create_date | date:'MM/dd hh:mm'}}</td>
+        <td>{{v.ip}}</td>
+        <td><button (click)="deleteVote(v.id)">削除</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
