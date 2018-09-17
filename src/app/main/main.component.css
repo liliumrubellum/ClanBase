@@ -35,7 +35,7 @@ table {
 
 td {
   position: relative;
-  width: 100px;
+  width: 115px;
   height: 50px;
   background-color: rgb(224, 224, 224);
   padding: 5px;
@@ -88,7 +88,7 @@ td {
 }
 
 .oil {
-  width: 800px;
+  width: 900px;
   margin: 0px auto;
   text-align: left;
 }
