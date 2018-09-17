@@ -71,7 +71,7 @@ app.route('/api/vote*')
         await db.runAsync('\
           INSERT INTO vote \
           VALUES (?, ?, ?, ?, ?, ?, ?)',
-          id, JSON.stringify(req.body), -1, '', 0, Date.now(), '192.168.0.1');
+          id, JSON.stringify(req.body), -1, '', 0, Date.now(), req.ip);
         console.log('inserted');
 
         await db.execAsync('COMMIT');
@@ -233,8 +233,8 @@ app.route('/api/vote*')
 
 // 宣言順にルーティングされるようなのでapi/voteより後ろで
 // 定義しないと全getリクエストがこちらに流れてしまう
-app.get('/*', function (request, response) {
-  response.sendFile(path.resolve(__dirname, '../public/index.html'));
+app.get('/*', function (req, res) {
+  res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
 // listen for requests :)
