@@ -3,10 +3,14 @@ var app = express();
 var requestIp = require('request-ip');
 var path = require('path');
 var fs = require('fs');
+require('dotenv').config();
 require('sqlite3').Database.prototype = require('bluebird').promisifyAll(require('sqlite3').Database.prototype)
-var sqlite3 = new require('sqlite3').verbose();
+
+// config.json読み込み
+const config = require(path.resolve(__dirname, process.env.CONFIG));
 
 // DBの準備
+const sqlite3 = new require('sqlite3').verbose();
 const dbDir = path.resolve(__dirname, '../.data');
 if (!fs.existsSync(dbDir)) {
   fs.mkdirSync(dbDir);
@@ -151,6 +155,10 @@ app.route('/api/vote*')
     // };
 
     let proc = async function () {
+
+      if (new Date(config.dueDate) < Date.now()) {
+        throw '投稿期日を過ぎています。';
+      }
 
       // 仮登録済みか確認
       let ret = await db.getAsync('\
