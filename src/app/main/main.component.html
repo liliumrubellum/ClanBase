@@ -1,40 +1,47 @@
-<div *ngIf="voteId < 0">
-  <div *ngIf="!showResult" class="oil">
-    <img class="oil-image" src="../assets/oil.png" style=" text-align: left">
-    <span class="oil-value" [ngClass]="{ 'oil-value-minus': oil < 0 }" style=" text-align: left">
-      {{oil | number}}
-    </span>
-  </div>
+<div class="main" *ngIf="voteId < 0">
 
-  <div class="members" *ngIf="showResult">
+  <!-- left -->
+  <div class="left" *ngIf="showResult">
     <ul class="members">
-      <li class="members" *ngFor="let d of allVoteData">
-        <div class="member"
+      <li class="members" *ngFor="let d of allVoteData"
         (mouseenter)="selectedMember=d.name"
         (mouseleave)="selectedMember=''">
-          {{d.name}}
-        </div>
+        {{d.name}}
       </li>
     </ul>
   </div>
 
-  <table>
+  <!-- right -->
+  <div class="right">
+
+    <!-- top -->
+    <div *ngIf="!showResult" class="top">
+      <img class="oil" src="../assets/oil.png">
+      <span class="oil" [ngClass]="{ 'oil-minus': oil < 0 }">
+        {{oil | number}}
+      </span>
+
+      <span class="tier low">Tier 1-6</span>
+      <span class="tier mid">Tier 7-8</span>
+      <span class="tier high">Tier 9-10</span>
+    </div>
+
+    <!-- middle -->
+    <table class="middle">
     <tbody>
-      <tr *ngFor="let building of config.building">
+      <ng-container *ngFor="let building of config.building">
+      <tr *ngIf="!building.hidden">
         <td class="first">
           <div class="name">{{building.name}}</div>
           <div class="effect">{{building.effect}} {{sumValues(building.id) | signedNumber}}{{building.unit}}</div>
         </td>
-        <td *ngFor="let level of building.levels; last as isLast"
-          [ngClass]="{ last: isLast }" class="level">
+        <td class="level" *ngFor="let level of building.levels; last as isLast"
+          [ngClass]="{ last: isLast }">
           <div class="level-check">
-            <input type="checkbox"
-            [checked]="level.level <= getLevel(building.id)"
-            [disabled]="level.level <= building.minLevel || building.maxLevel < level.level || showResult"
+            <input type="checkbox" [checked]="level.level <= getLevel(building.id)" [disabled]="level.level <= building.minLevel || building.maxLevel < level.level || showResult"
               (change)="setLevel(building.id, level.level, $event)">
             <label>
               <div *ngIf="showResult && sumVotes(building.id, level.level) > 0" class="check">
-
                 {{sumVotes(building.id, level.level)}}
               </div>
             </label>
@@ -48,27 +55,30 @@
             </div>
             <div>
               <img class="param-icon" src="../assets/arrow.png" />
-              <span class="param-value"
-              [ngClass]="{ low: level.maxTier <= 6, mid: level.minTier >= 7 && level.maxTier <= 8, high: level.minTier >= 9 }">
+              <span class="param-value" [ngClass]="{ low: level.maxTier <= 6, mid: level.minTier >= 7 && level.maxTier <= 8, high: level.minTier >= 9 }">
                 {{level.value | signedNumber }}{{building.unit}}
               </span>
             </div>
           </div>
         </td>
       </tr>
+      </ng-container>
     </tbody>
-  </table>
+    </table>
 
-  <div *ngIf="!showResult">
-    <button class="vote" [disabled]="oil < 0" (click)="postVote()">
-      投票
-    </button>
+    <!-- bottom -->
+    <div class="bottom" *ngIf="!showResult">
+      <button class="vote" [disabled]="oil < 0" (click)="postVote()">
+        投票
+      </button>
+    </div>
   </div>
 </div>
 
+<!-- voted -->
 <div *ngIf="voteId >= 0">
   <p>
-    仮投票を受け付けました。<br/>
+    仮投票を受け付けました。<br />
     以下をディスコードの#voteチャンネルに貼り付けてください。
   </p>
   <div>
@@ -78,6 +88,7 @@
   </div>
 </div>
 
+<!-- test -->
 <div *ngIf="!isProd">
   <button (click)="postVote()">
     POST

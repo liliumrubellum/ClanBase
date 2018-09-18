@@ -121,5 +121,14 @@ export class MainComponent implements OnInit {
     })
     return sum;
   }
+  selectedLevel: any;
+  isSelected(member: string): boolean {
+    let level = this.selectedLevel;
+    console.log(level);
+
+    return level && this.allVoteData
+      .find(v => v.name == member).data
+      .find(d => d.id == level.id).level >= level.level;
+  }
 
 }

@@ -1,209 +1,209 @@
-/* table {
-  border-width: 1px;
-  border-color: #000000;
-  border-style: solid;
+/***** layout *****/
+.main {
+  width: 920px;
+  margin: 0px auto;
 }
-
-td {
-  border-width: 1px;
-  border-color: #000000;
-  border-style: solid;
+.left {
+  display: inline-block;
+  vertical-align: top;
+  width: 120px;
+  padding-right: 5px;
 }
-
-div {
-  border-width: 1px;
-  border-color: #000000;
-  border-style: solid;
+.right {
+  display: inline-block;
 }
-
-span {
-  border-width: 1px;
-  border-color: #000000;
-  border-style: solid;
+.right, .top, .middle, .bottom {
+  width: 790px;
 }
-
-label {
-  border-width: 1px;
-  border-color: #000000;
-  border-style: solid;
+/* .main, .left, .right, .top, .middle, .bottom {
+  border: 1px solid;
 } */
 
-table {
-  display: inline-block;
-  border-spacing: 0px 5px;
-}
 
-td {
-  position: relative;
-  width: 115px;
-  height: 50px;
-  background-color: rgb(224, 224, 224);
-  padding: 5px;
+
+
+
+/***** left *****/
+ul.members {
+  margin: 5px 0px;
+  padding: 0px;
+  list-style: none;
+}
+li.members {
+  text-align: center;
+  margin: 2px 0px;
+  padding: 2px 10px;
   color: black;
+  background-color: rgb(219, 216, 174);
+  border-radius: 3px;
+  overflow: hidden;
+}
+li.members:hover {
+  background-color: rgb(216, 173, 138);
+  cursor: default;
 }
 
+
+
+
+
+/***** top *****/
+.top {
+  text-align: left;
+}
+img.oil {
+  /* text-align: left; */
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+}
+span.oil {
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 100px;
+  font-size: 24px;
+}
+span.oil-minus {
+  color: red;
+}
+span.tier {
+  color: black;
+  margin: 5px;
+  padding: 0px 5px;
+  vertical-align: middle;
+  font-size: 12px;
+}
+.low {
+  background-color: rgb(127, 211, 218);
+}
+.mid {
+  background-color: rgb(226, 217, 94);
+}
+.high {
+  background-color: rgb(238, 156, 89)
+}
+
+
+
+
+
+/***** middle *****/
+table {
+  border-spacing: 0px 5px;
+  /* border-spacing: 0px 0px; */
+  /* table-layout: fixed; */
+}
+td {
+  position: relative; /* チェックボックスのON/OFFに必要 */
+  /* width: 115px; */
+  height: 50px;
+  padding: 0px;
+  color: black;
+  background-color: rgb(224, 224, 224);
+}
 .level {
   text-align: left;
 }
-
 .first {
   width: 150px;
   border-radius: 5px 0px 0px 5px;
 }
-
 .last {
   border-radius: 0px 5px 5px 0px;
 }
-
 .name {
   font-size: 20px;
 }
-
 .effect {
   font-size: 12px;
 }
-
 .level-check {
   display: inline-block;
   text-align: left;
   vertical-align: middle;
 }
-
 .level-param {
   display: inline-block;
   text-align: left;
   vertical-align: middle;
   padding: 0px 5px;
 }
-
 .param-icon {
+  vertical-align: middle;
   width: 16px;
   height: 16px;
-  vertical-align: middle;
 }
-
 .param-value {
   vertical-align: middle;
   font-size: 12px;
 }
-
-.oil {
-  width: 900px;
-  margin: 0px auto;
-  text-align: left;
-}
-
-.oil-image {
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
-  text-align: left;
-}
-
-.oil-value {
-  vertical-align: middle;
-  text-align: left;
-  font-size: 24px;
-}
-
-.oil-value-minus {
-  color: red;
-}
-
-.vote {
-  width: 200px;
-  height: 50px;
-  padding: 0.3em 1em;
-  text-decoration: none;
-  font-size: 24px;
-  background-color: lightskyblue;
-  border-radius: 5px;
-  border-width: 0px;
-  margin-right: 20px;
-  text-align: center;
-}
-
-.vote:hover {
-  background-color: lightblue;
-}
-
-.vote:disabled {
-  background-color: lightgrey;
-}
-
-.voteId {
-  font-size: 48px;
-  margin: 20px 5px;
-}
-
-div.members {
-  display: inline-block;
-  vertical-align: top;
-  text-align: left;
-  margin: 10px;
-}
-ul.members {
-  list-style: none;
-}
-li.members {
-  color: black;
-  background-color: rgb(226, 221, 152);
-  min-width: 80px;
-  margin: 2px 0px;
-  padding: 2px 10px;
-  border-radius: 3px;
-}
-
-div.member:hover {
-  color: rgb(219, 106, 14);
-  cursor: default;
-}
-
-.low {
-  background-color: rgb(127, 211, 218);
-}
-
-.mid {
-  background-color: rgb(226, 217, 94);
-}
-
-.high {
-  background-color: rgb(238, 156, 89)
-}
-
 .check {
-  color: rgb(223, 73, 73);
   display: inline-block;
-  font-size: 36px;
-  font-weight: bold;
+  text-align: center;
   width: 100%;
   height: 100%;
-  text-align: center;
+  padding-top: 3px;
+  color: rgb(223, 104, 104);
+  /* color: rgb(204, 0, 0); */
+  font-size: 24px;
+  font-weight: bold;
 }
-
 input[type="checkbox"] {
   position: absolute;
-  top: 0;
-  opacity: 0;
   width: 100%;
   height: 100%;
+  margin: 0px;
+  top: 0;
+  opacity: 0;
 }
-
 input[type="checkbox"]+label {
   display: block;
   width: 32px;
-  height: 48px;
+  height: 32px;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url("../../assets/bg_checkbox_off.png");
 }
-
 input[type="checkbox"]:checked+label {
   display: block;
   width: 32px;
-  height: 48px;
+  height: 32px;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url("../../assets/bg_checkbox_on.png");
 }
 
+
+
+
+/***** bottom *****/
+.bottom {
+  padding: 10px;
+}
+.vote {
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  margin-right: 20px;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  background-color: lightskyblue;
+  font-size: 24px;
+  border-radius: 5px;
+  border-width: 0px;
+}
+.vote:hover {
+  background-color: lightblue;
+}
+.vote:disabled {
+  background-color: lightgrey;
+}
+
+
+
+
+/***** voted *****/
+.voteId {
+  font-size: 48px;
+  margin: 20px 5px;
+}

@@ -1,5 +1,5 @@
 {
-  "oil": 200000,
+  "oil": 230000,
   "dueDate": "2018/9/24 7:00",
   "building":
   [
@@ -9,7 +9,7 @@
       "effect": "人数",
       "unit": "",
       "hidden": true,
-      "minLevel": 0,
+      "minLevel": 2,
       "maxLevel": 2,
       "levels":
       [
